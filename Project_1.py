@@ -20,6 +20,7 @@ a = np.array([[1,2,3,4],
 print('Initil state:')
 print(a)
 print(" ")
+print(" ")
 
 # Let us also define Goal state
 goal_state = np.array([[1,2,3,4],
@@ -214,13 +215,13 @@ print(" ")
 
 static_list = [visited_list] #>>>>> List that holds the visited list without changing for the inner loop
 
-print(static_list)
+
 
 # j = 0
 # while np.array_equal(goal_state,a) == False:
 
 # for loop takes a maximum value of how many steps in BFS we want
-for j in range(10):   #>>> this can be a while loop to give conition for goal state reaching
+for j in range(5):   #>>> this can be a while loop to give conition for goal state reaching
     
     
     size = len(static_list[j]) - 1  #>>>> inner loop doesn't iterate over the first value and the last value
@@ -308,9 +309,7 @@ for j in range(10):   #>>> this can be a while loop to give conition for goal st
     j += 1  
     
     
-        
-        
-    
+
     
 
 
