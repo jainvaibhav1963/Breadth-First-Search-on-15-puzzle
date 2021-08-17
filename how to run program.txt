@@ -1,9 +1,5 @@
 How to run the program:
 
-1) change initial state in the python file to desired matrix.
+change initial/goal state in the python file to desired matrix.
 
-2) change for loop range value to desired number of generations of children  for BFS
-
-3) [[x, child1, child2, ..., y]]  ,   this is the visited list that shows the postion of zero/blank in a state.
-                                      y is the parent and x is the parent from layer above or where y came from.
 
