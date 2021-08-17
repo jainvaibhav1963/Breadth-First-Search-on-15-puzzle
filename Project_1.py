@@ -15,12 +15,15 @@ print(" ")
 
 # Let us also define Goal state
 goal_state = np.array([[1,2,3,4],
-                       [5,6,0,8],
-                       [9,10,11,12],
-                       [13,14,7,15]])
+                       [5,6,7,8],
+                       [0,10,11,12],
+                       [13,9,14,15]])
 
 # list that keep track of blank tile indices that have been visited
-visited_list = []
+blank = np.array([[0,0,0,0],
+                  [0,0,0,0],
+                  [0,0,0,0]])
+visited_list = [blank]
 open_list = [initial_state]
 
 # Finding the blank which is zero in the matrix.
@@ -124,44 +127,44 @@ while True:
     a = open_list[0]
 
     if up(a):
-        if a not in visited_list:
-            u = a.copy()
-            open_list.append(u)
+        u = a.copy()
+        open_list.append(u)
         if np.array_equal(a,goal_state) == True:
             break
         down(a)
         
     if down(a):
-        if a not in visited_list:
-            d = a.copy()
-            open_list.append(d)
+        d = a.copy()
+        open_list.append(d)
         if np.array_equal(a,goal_state) == True:
             break
         up(a)
         
     if left(a):
-        if a not in visited_list:
-            l = a.copy()
-            open_list.append(l)
+        l = a.copy()
+        open_list.append(l)
         if np.array_equal(a,goal_state) == True:
             break
         right(a)
         
     if right(a):
-        if a not in visited_list:
-            r = a.copy()
-            open_list.append(r)
+        r = a.copy()
+        open_list.append(r)
         if np.array_equal(a,goal_state) == True:
             break
         left(a)
     
-    open_list.pop(0)
+    ree = open_list.pop(0)
+    
+    # delete all the states in open the same as we checked
+    uniques = []
+    for arr in open_list:
+        if not any(np.array_equal(arr, unique_arr) for unique_arr in uniques):
+            uniques.append(arr)
+    
+    open_list = uniques
+
     print(a)
+    print('-----------')
 
-    
-    
-
-
-
-
-    
+print('goal reached')
